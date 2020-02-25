@@ -1,33 +1,27 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const axios = require("axios");
+const axios = require('axios');
+const getCurrentWeather = require('../models/currentWeather');
 
 const apikey = process.env.DARKSKY_API_KEY;
-const coords = "33.7642196,-84.3628605"; // this will eventually be dynamic
-let currentWeather = {
-  temperature: Number,
-  summary: String,
-  windSpeed: Number,
-  humidity: Number,
-  cloudCover: Number,
-  precipType: Number
-};
+const coords = '33.7642196,-84.3628605'; // this will eventually be dynamic
 
-router.get("/weather", (req, res, next) => {
-  axios
-    .get(`https://api.darksky.net/forecast/${apikey}/${coords}`)
-    .then(response => {
-      for (const prop in currentWeather) {
-        if (prop in response.data.currently) {
-          currentWeather[prop] = response.data.currently[prop];
-        }
-      }
+const instance = axios.create({
+	headers: { 'Access-Control-Allow-Origin': '*' }
+});
 
-      res.send(currentWeather);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
+router.get('/weather', (req, res, next) => {
+	instance
+		.get(`https://api.darksky.net/forecast/${apikey}/${coords}`)
+		.then((response) => {
+			const currentweather = getCurrentWeather(response.data.currently);
+			res.send(currentweather);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 });
 
 module.exports = router;
