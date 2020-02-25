@@ -1,14 +1,15 @@
 {
   "name": "TopHeadlinesAPI",
   "version": "1.0.0",
-  "description": "",
+  "description": "API endpoint for Top Headlines",
+  "repository": "https://github.com/DBereznak/TopHeadlines-api.git",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Donny Bereznak",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
