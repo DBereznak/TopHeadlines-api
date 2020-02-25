@@ -1,0 +1,7 @@
+{
+    "build": {
+      "env": {
+        "VARIABLE_NAME": "@darksky_api_key"
+      }
+    }
+  }
