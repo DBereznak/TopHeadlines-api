@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "builds": [{"src": "server.js", "use": "@now/node-server" }],
+  "builds": [{"src": "index.js", "use": "@now/node-server"}],
   "routes": [
  {
    "src": "/weather",
-   "dest": "/index.js",
+   "dest": "./routes/routes.js",
    "methods": ["GET"]
  }
   ],
     "build": {
       "env": {
-        "VARIABLE_NAME": "@darksky_api_key"
+        "darksky_api_key": "@darksky_api_key"
       }
     }
 }

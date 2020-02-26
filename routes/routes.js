@@ -4,7 +4,6 @@ const axios = require('axios');
 const getCurrentWeather = require('../models/currentWeather');
 
 const apikey = process.env.darksky_api_key;
-//const apikey = process.env.VARIABLE_NAME;
 const coords = '33.7642196,-84.3628605'; // this will eventually be dynamic
 
 const instance = axios.create({
