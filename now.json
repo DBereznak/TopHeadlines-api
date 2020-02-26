@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "builds": [{"src": "index.js", "use": "@now/node-server"}],
+  "builds": [{"src": "index.js", "use": "@now/node-server" , }],
   "routes": [
- { "routes": [{
+ {
    "src": "/weather",
-   "dest": "./routes/routes.js",
+   "dest": "./index.js",
    "methods": ["GET"]
- }]
  }
   ],
     "build": {
