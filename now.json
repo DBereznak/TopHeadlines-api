@@ -4,6 +4,7 @@
   "routes": [
  {
    "src": "/weather",
+   "dest": "./index.js",
    "methods": ["GET"]
  }
   ],
